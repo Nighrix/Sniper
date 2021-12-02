@@ -27,7 +27,7 @@ var BSC_FORK = Common.forCustomChain(
   'istanbul',
 );
 
-var tokenAddress = '0x025d657616f41997cd0291c6347e21fa75f379cb';
+var tokenAddress = '0x1316f8e84c03e236355639f4d18018c55d3e23f9';
 
 main();
 
@@ -181,9 +181,12 @@ async function onAbiLoaded(data) {
         .then(async res => {
           //res.forEach(async rec => {
           //  console.log(rec.blockNumber, rec.transactionHash, rec.topics);
-            
+          console.log("SnipeState: " + res.length + " waiting for launch ...");
+          console.log(res);
+          
+          if(res.length != 0) {
             try {
-              var bnbAmount = 0.017;
+              var bnbAmount = 0.029;
               var a = await buyToken(activePrivateKey, activeAddress, Math.round(decimals * bnbAmount), abi);
               console.log("Transaction went through ...");
               stop = true;
@@ -192,7 +195,7 @@ async function onAbiLoaded(data) {
         
             }
             
-            
+          }
             
             
             
